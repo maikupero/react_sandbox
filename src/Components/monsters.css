@@ -1,0 +1,44 @@
+#title {
+    width: 100%;
+}
+
+#sample {
+    width: 100%;
+}
+
+#body {
+    display: flex;
+    justify-content: center;
+    height: 300px;
+}
+
+#collection {
+    width: 40%;
+    border: solid 1px black;
+    border-radius: 10px;
+}
+
+#monster { 
+    width: 40%;
+}
+
+#sample {
+    height: 100px;
+    width: 100px;
+    padding: 0px;
+    margin: 0px;
+    border: solid 1px black;
+    border-radius: 5px;
+}
+
+#samplemonster {
+    padding: 0px;
+    margin: 0px;
+    height: 100px;
+    width: 100px;
+}
+
+img {
+    height: 100px;
+    width: 100px;
+}

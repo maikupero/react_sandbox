@@ -1,0 +1,10 @@
+.main {
+    padding: 10px;
+    margin: 10px;
+}
+
+p {
+    height: 60px;
+    font-size: 30px;
+    word-wrap: break-word;
+}
