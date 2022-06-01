@@ -24,7 +24,9 @@ function Monsters() {
                 <div id="collection">
                     {monstersCollection.map((monster, id) => {
                         return (
-                            <img src={monster} key={id} alt={`monster${id}`} />
+                            <div id='collectedmonster'>
+                                <img src={monster} key={id} alt={`monster${id}`} />
+                            </div>
                         );
                     })}
                 </div>

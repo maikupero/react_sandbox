@@ -1,6 +1,7 @@
 // import Monsters from './Components/Monsters';
-import StringMaker from './Components/StringMaker';
-import Monsters from './Components/Monsters';
+import StringMaker from './Components/StringMaker/StringMaker';
+import Monsters from './Components/Monsters/Monsters';
+import Wordle from './Components/Wordle/Wordle';
 
 import './App.css';
 
@@ -9,6 +10,7 @@ function App() {
     <div className="App">
       <StringMaker />
       <Monsters />
+      <Wordle />
     </div>
   );
 }
