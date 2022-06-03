@@ -2,13 +2,65 @@
   text-align: center;
 }
 
+nav {
+  height: 60px;
+  width: 100%;
+  border-bottom: 1px solid grey;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 50px;
+}
+nav h1 {
+  margin: 0;
+  font-size: 45px;
+}
+
+.main {
+  margin: 5em;
+  justify-content: center;
+  align-items: center;
+  height: 600px;
+}
+.content {
+  margin: 2em;
+  height: 500px;
+}
+@media only screen and (max-width: 980px) {
+  .main {
+    margin: 1em;
+  }
+  .content {
+    margin: 1em;
+  }
+}
+
+.buttons {
+  height: 50px;
+  margin: auto;
+  align-items: center;
+}
 button {
-  padding: 10px;
-  margin: 10px;
+  background: none;
+  font: inherit;
+  line-height: 1;
+  margin: 0.5em;
+  padding: 1em 1em;
+  
   border-radius: 20px;
   border: solid 2px black;
   box-shadow: 1px 3px rgba(0,0,0,0.2);
+
+  transition: 0.25s;
 }
 button:hover {
   cursor: pointer;
+  box-shadow: none;
+}
+
+
+/* StringMaker styles */
+#longstring, #stringlength {
+  height: 60px;
+  font-size: 30px;
+  word-wrap: break-word;
 }

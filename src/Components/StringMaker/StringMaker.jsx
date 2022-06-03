@@ -1,4 +1,3 @@
-import './stringmaker.css';
 import {useState, useEffect} from 'react';
 
 function StringMaker() {
@@ -17,12 +16,16 @@ function StringMaker() {
     
     return (
         <div className="main">
-            <h1 className='description'>To experiment with useEffect and useStates.</h1>
-            <h2 className='instruction'>Hello! Push this button to grow the string:</h2>
-            <p id='longstring'>{string}</p>
-            <p id='stringlength'>Dynamic length of string: {string.length}</p>
-            <button onClick={() => setString(string + newLetter())}>Click</button>
-            <button onClick={() => setString('')}>Clear</button>
+            <nav><h1>StringMaker</h1></nav>
+
+            <div className="content" style={{display: 'inline'}}>
+                <p id='longstring'>{string}</p>
+                <p id='stringlength'>Dynamic length of string: {string.length}</p>
+                <div className="buttons">
+                    <button onClick={() => setString('')}>Clear</button>
+                    <button onClick={() => setString(string + newLetter())}>Click</button>
+                </div>
+            </div>
         </div>
     );
 }

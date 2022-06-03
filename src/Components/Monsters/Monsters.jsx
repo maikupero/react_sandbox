@@ -16,11 +16,11 @@ function Monsters() {
     };
     
     return (
-        <div id="main">
-        
-            <h1 id="title">Monsters!!!</h1>
+        <div className="main">
 
-            <div id="body">
+            <nav><h1>Monsters!!!</h1></nav>
+
+            <div className="content" style={{display: 'flex', justifyContent: 'space-between'}}>
                 <div id="collection">
                     {monstersCollection.map((monster, id) => {
                         return (
@@ -38,7 +38,7 @@ function Monsters() {
                 </div>
             </div>
 
-            <div id="buttons">
+            <div className="buttons">
                 <button onClick={() => setMonstersCollection([])}>Clear Collection</button>
                 <button onClick={() => {
                     if (monster.length && monstersCollection.length < 6) {
