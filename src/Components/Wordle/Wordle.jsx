@@ -1,18 +1,26 @@
 import './wordle.css';
-import { createContext, useState } from 'react';
+import { createContext, useEffect, useState } from 'react';
 
 import Board from './Components/Board';
 import Keyboard from './Components/Keyboard';
-import { boardDefault } from './boardhelper';
+import { boardDefault, generateWordSet } from './boardhelper';
 
 export const AppContext = createContext();
 
 export default function Wordle() { 
 	const [board, setBoard] = useState(boardDefault);
 	const [currAttempt, setCurrAttempt] = useState({attempt: 0, letterPos: 0});
+	const [wordSet, setWordSet] = useState(new Set());
+	const [disabledLetters, setDisabledLetters] = useState([]);
 
 	const correctWord = "RIGHT";
 
+	useEffect(() => {
+		generateWordSet().then((words) => {
+			setWordSet(words.wordSet);
+		})
+	})
+	
 	const onSelectLetter = (keyVal) => {
 		if (currAttempt.letterPos > 4) return;
 		const newBoard = [...board];
@@ -29,7 +37,20 @@ export default function Wordle() {
 	}
 	const onEnter = () => {
 		if (currAttempt.letterPos !== 5) return;
-		setCurrAttempt({attempt: currAttempt.attempt + 1, letterPos: 0})
+		
+		let currWord = "";
+		for (let l of board[currAttempt.attempt]) {
+			currWord += l;
+		}
+		if (wordSet.has(currWord.toLowerCase())) {
+			setCurrAttempt({attempt: currAttempt.attempt + 1, letterPos: 0});
+		} else {
+			alert("Word not found.");
+		}
+
+		if (currWord === correctWord) {
+			alert("You got it!");
+		}
 	}
 
 	return (
@@ -46,7 +67,9 @@ export default function Wordle() {
 					onDelete, 
 					onEnter, 
 					onSelectLetter,
-					correctWord
+					correctWord,
+					disabledLetters,
+					setDisabledLetters
 				}}>
 				<Board />
 				<Keyboard />
