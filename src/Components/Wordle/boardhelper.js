@@ -22,15 +22,3 @@ export const generateWordSet = async () => {
 
 	return { wordSet, todaysWord };
 }
-
-export const getStats = () => {
-	const newStats = {
-		rounds: 0, 
-		guesses: 0,
-		wins: 0,
-		losses: 0
-	};
-	const savedStats = JSON.parse(localStorage.getItem('user'));
-	
-	return savedStats ? savedStats : newStats
-}

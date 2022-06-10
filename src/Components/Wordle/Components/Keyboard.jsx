@@ -4,7 +4,6 @@ import Key from './Key';
 
 function Keyboard() {
 	const { 
-		board, 
 		disabledLetters,
 		currAttempt,
 		gameOver,

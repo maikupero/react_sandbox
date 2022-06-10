@@ -11,6 +11,25 @@
     flex: initial;
     align-items: center;
 }
+
+.worlde-buttons {
+    height: 100px;
+    padding: 0em;
+    display: flex;
+    flex-direction: row;
+}
+.wordle-buttons h4 {
+    margin: 0;
+    padding: 0;
+}
+.wordle-buttons > button {
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-bottom: 10px;
+    height: 40px;
+}
+
+
 .stats h4 {
     margin: 10px;
 }

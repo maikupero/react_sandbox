@@ -21,7 +21,7 @@ function Key({ keyVal, bigKey, disabled }) {
   return (
     <div 
 		className='key' 
-		id={bigKey ? "big" : disabled && "disabled"} 
+		id={bigKey ? "big" : disabled ? "disabled" : "basic"} 
 		onClick={selectLetter}>{keyVal}</div>
   );
 }
