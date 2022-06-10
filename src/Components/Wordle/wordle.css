@@ -2,9 +2,19 @@
     height: calc(100vh - 170px);
     display: flex;
     align-items: center;
-    flex-direction: column;;
+    flex-direction: column;
 }
-  
+
+.stats {
+    display: flex;
+    flex-direction: row;
+    flex: initial;
+    align-items: center;
+}
+.stats h4 {
+    margin: 10px;
+}
+
 .board {
     width: 320px;
     height: 400px;

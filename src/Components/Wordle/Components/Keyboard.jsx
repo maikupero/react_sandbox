@@ -3,7 +3,13 @@ import { AppContext } from '../Wordle';
 import Key from './Key';
 
 function Keyboard() {
-	const { onEnter, onDelete, onSelectLetter, disabledLetters } = useContext(AppContext)
+	const { 
+		board, 
+		disabledLetters,
+		currAttempt,
+		gameOver,
+		onEnter, onDelete, onSelectLetter
+	} = useContext(AppContext);
 	
 	const letters = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"];
 	const keys1 = ["Q","W","E","R","T","Y","U","I","O","P"];
@@ -11,26 +17,29 @@ function Keyboard() {
 	const keys3 = ["Z","X","C","V","B","N","M",];
 
 	// Prevents reupdating everything unnecessarily.
-	const handleKeyboard = useCallback((event) => {
-		if (event.key === 'Enter') {
-			onEnter();
-		} else if (event.key === 'Backspace') {
-			onDelete();
-		} else {
-			for (let letter of letters) {
-				if (event.key === letter) {
-					onSelectLetter(letter.toUpperCase())
-				}
+	const handleKeyboard = useCallback(
+		(event) => {
+			if (gameOver.gameOver) return;
+			if (event.key === 'Enter') {
+				onEnter();
+			} else if (event.key === 'Backspace') {
+				onDelete();
+			} else {
+				for (let letter of letters) {
+					if (event.key === letter) {
+						onSelectLetter(letter.toUpperCase())
+					}
+				};
 			}
-		}
-	});
+		}, [currAttempt]
+	);
 
 	useEffect(() => {
 		document.addEventListener("keydown", handleKeyboard);
 
 		return () => {
 			document.removeEventListener("keydown", handleKeyboard);
-		}
+		};
 	}, [handleKeyboard]);
 
   return (
